@@ -1,0 +1,12 @@
+ora12c:
+  container_name: ora12c
+  build:
+    .
+  dockerfile:
+    Dockerfile
+  environment:
+    - ORACLE_ALLOW_REMOTE=true
+    - DBCA_TOTAL_MEMORY=1024
+  ports:
+    - "15022:22"
+    - "1521:1521" 
