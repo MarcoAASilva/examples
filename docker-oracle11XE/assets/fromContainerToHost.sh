@@ -1,0 +1,2 @@
+docker cp ora11xe:/usr/local/oracle/dumps/TF-ORA11XE_reference.dmp ./oracle/dumps/TF-ORA11XE_reference.dmp
+docker cp ora11xe:/usr/local/oracle/dumps/TF-ORA11XE_reference.log ./oracle/dumps/TF-ORA11XE_reference.log

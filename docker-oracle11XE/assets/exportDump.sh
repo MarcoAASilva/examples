@@ -1,0 +1,2 @@
+rm /usr/local/oracle/dumps/TF-ORA11XE_reference.dmp
+/u01/app/oracle/product/11.2.0/xe/bin/expdp hr/cortex@localhost tables=DUMPTEST directory=dump_dir dumpfile=TF-ORA11XE_reference.dmp logfile=dump_dir:TF-ORA11XE_reference.log
