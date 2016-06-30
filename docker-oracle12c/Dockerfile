@@ -6,8 +6,10 @@ MAINTAINER "Marco Silva <marco.silva@bytewood.com>"
 RUN mkdir -p /usr/local/oracle/dumps
 RUN chmod -R 0777 /usr/local/oracle/dumps
 
-ADD assets/init.sql /usr/local/oracle/init.sql
+ADD assets/${DUMP_INIT_SQL} /usr/local/oracle/${DUMP_INIT_SQL}
 
-ADD assets/dumps/dump_after_migration_fresh_config_v4.dmp /usr/local/oracle/dumps/dump_after_migration_fresh_config_v4.dmp
+ADD assets/dumps/${DUMP_FILE} /usr/local/oracle/dumps/${DUMP_FILE}
 
+ADD assets/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 

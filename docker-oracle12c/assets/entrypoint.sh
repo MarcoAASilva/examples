@@ -52,6 +52,15 @@ case "$1" in
 			su oracle -c 'echo EXEC DBMS_XDB.sethttpport\(0\)\; | $ORACLE_HOME/bin/sqlplus -S / as sysdba'
 		fi
 
+		echo "setting up user for dump import..."
+		cd /usr/local/oracle
+		su oracle -c 'echo -e "${ORACLE_HOME}\n\n" | $ORACLE_HOME/bin/sqlplus -S / as sysdba @${DUMP_INIT_SQL} > /dev/null'
+
+		echo "importing dump file ${DUMP_FILE}..." 
+		su oracle -c '$ORACLE_HOME/bin/impdp ${DUMP_USER}/${DUMP_PASSWORD} directory=dump_dir dumpfile=${DUMP_FILE} NOLOGFILE=Y || true' 
+
+		echo "the dump has been imported (for user ${DUMP_USER} identified by ${DUMP_PASSWORD})..."
+
 		echo "Database ready to use. Enjoy! ;)"
 
 		##
