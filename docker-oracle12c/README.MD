@@ -1,31 +1,49 @@
 ## Synopsis
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+Deploying a Dockerized instance of Oracle12c with backup and restore of state via dump file
 
 ## Code Example
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+Set parameters on compose.yml:
+- initial sql script
+- dump user and password
+- dump file
+
+```
+ora12c:
+  container_name: ora12c
+  build:
+    .
+  dockerfile:
+    Dockerfile
+  environment:
+    - DBCA_TOTAL_MEMORY=1024
+    - DUMP_INIT_SQL = init.sql
+    - DUMP_USER = DFOX
+    - DUMP_PASSWORD = developer
+    - DUMP_FILE=dump_after_migration_fresh_config_v4.dmp
+  ports:
+    - "8080:8080"
+    - "1521:1521" 
+```
+
+
+docker-compose -f ora12c.yml up --build
 
 ## Motivation
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+Performing backup and restore of state on a Dockerized Oracle12c is useful for automated testing routines.
 
 ## Installation
 
-Provide code examples and explanations of how to get the project.
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
+[TBD]
 
 ## Contributors
 
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+[TBD]
+
 
 ## License
 
-A short snippet describing the license (MIT, Apache, etc.)
+[TBD]
+
