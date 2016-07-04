@@ -81,7 +81,7 @@ create or replace directory DATA_PUMP_DIR as '/usr/local/oracle/dumps/';
 grant read, write on directory DATA_PUMP_DIR to test_dpump;
 ```
 
-THe script will always copy DUMP_FILE to path '/usr/local/oracle/dumps/' on the container
+The script will always copy DUMP_FILE to path '/usr/local/oracle/dumps/' on the container
 
 Adjust init.sql to your needs, or write your own and replace the reference on DUMP_INIT_SQL
 
