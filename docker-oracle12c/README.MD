@@ -118,7 +118,5 @@ Additional dumps can be generated from [Oracle example database schemas](https:/
 Rainer Kern (ray@bytewood.com)
 Marco Silva (marco.silva@bytewood.com)
 
-## License
 
-[TBD]
 
