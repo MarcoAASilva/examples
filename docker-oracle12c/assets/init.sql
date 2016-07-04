@@ -3,16 +3,6 @@ SET VERIFY OFF;
 SET SQLBLANKLINES ON;
 SET HEAD OFF /* This turns of the headers in result */
 SET FEEDBACK OFF /* Turns off the result feedback */
-CREATE USER DFOX IDENTIFIED BY developer;
-ALTER USER DFOX IDENTIFIED BY developer ACCOUNT UNLOCK;
-GRANT ALL PRIVILEGES TO DFOX;
-GRANT CREATE ANY DIRECTORY TO DFOX;
-GRANT CREATE SESSION TO DFOX;
-GRANT CREATE TABLE TO DFOX;
-GRANT CREATE TABLESPACE TO DFOX;
-CREATE TABLESPACE FOXDATA DATAFILE '/u01/app/oracle/oradata/xe/FOXDATA.DBF' SIZE 400M;
-ALTER TABLESPACE SYSTEM ADD DATAFILE '/u01/app/oracle/oradata/xe/SYSTEM02.DBF' SIZE 400M;
-ALTER TABLESPACE SYSTEM ADD DATAFILE '/u01/app/oracle/oradata/xe/SYSTEM03.DBF' SIZE 400M;
-ALTER TABLESPACE SYSAUX ADD DATAFILE '/u01/app/oracle/oradata/xe/SYSAUX002.DBF' SIZE 400M;
-CREATE OR REPLACE DIRECTORY dump_dir AS '/usr/local/oracle/dumps/';
-GRANT READ, WRITE ON DIRECTORY dump_dir TO DFOX;
+grant create session, create table to test_dpump identified by test;
+create or replace directory DATA_PUMP_DIR as '/usr/local/oracle/dumps/';
+grant read, write on directory DATA_PUMP_DIR to test_dpump;

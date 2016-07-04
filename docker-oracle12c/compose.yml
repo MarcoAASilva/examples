@@ -7,9 +7,9 @@ ora12c:
   environment:
     - DBCA_TOTAL_MEMORY=1024
     - DUMP_INIT_SQL=init.sql
-    - DUMP_USER=DFOX
-    - DUMP_PASSWORD=developer
-    - DUMP_FILE=dump_after_migration_fresh_config_v4.dmp
+    - DUMP_USER=test_dpump
+    - DUMP_PASSWORD=test
+    - DUMP_FILE=test.dmp
   ports:
     - "8080:8080"
     - "1521:1521" 
